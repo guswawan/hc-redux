@@ -3,8 +3,8 @@
 
 <p align="center">
     <img src="https://cdn.worldvectorlogo.com/logos/react.svg" height="90px" width="200px">  
-    <img src="https://material-ui.com/static/images/material-ui-logo.svg" height="90px">
     <img src="https://redux.js.org/img/redux.svg" height="90px"> 
+    <img src="https://material-ui.com/static/images/material-ui-logo.svg" height="90px">
    
    
 </p>
