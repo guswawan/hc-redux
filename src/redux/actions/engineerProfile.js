@@ -25,8 +25,7 @@ export const getEngineerProfile = (token) => dispatch => {
       console.log("res ",res)
       dispatch({
         type: 'GET_ENG_PROFILE_FULFILLED',
-        payload: res.data.data[0],
-        birth: res.data.data[0].birth.slice(0,10)
+        payload: res.data.data[0]
       })
     })
     .catch(err => {
