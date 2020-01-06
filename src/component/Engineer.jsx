@@ -399,8 +399,8 @@ class Engineer extends Component {
                   size="small"
                   />
                   <br/>
-                  <TextField
-                  // id="outlined-size-small"
+                  {/* <TextField
+                  id="outlined-size-small"
                   type="date"
                   size="small"
                   variant="outlined"
@@ -409,11 +409,11 @@ class Engineer extends Component {
                     shrink: true,
                   }}
                   value={engineerProfile.birth.slice(0,10)}
-                  // value={this.state.birth}
+                  value={this.state.birth}
                   onChange={ e => {this.setState({birth:e.target.value})
                   console.log(e.target.value)}}
                   />
-                  <br/>
+                  <br/> */}
                
                 </div>
                 <div className="btn-editprofile">
