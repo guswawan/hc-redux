@@ -143,7 +143,7 @@ class Engineer extends Component {
         name_engineer: this.state.name_engineer,
         description: this.state.description,
         location: this.state.location,
-        birth: this.state.birth
+        // birth: this.state.birth
       }
       const headers = { Authorization: `Bearer ${token}`};
 
