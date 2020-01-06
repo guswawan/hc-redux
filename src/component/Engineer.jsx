@@ -30,6 +30,7 @@ import Swal from 'sweetalert2';
 //redux
 import { connect } from 'react-redux'
 import { getEngineerProfile } from '../redux/actions/engineerProfile'
+import { patchEngineerProfile } from '../redux/actions/engineerProfile'
 
 
 class Engineer extends Component {
@@ -87,7 +88,8 @@ class Engineer extends Component {
             await this.props.dispatch(getEngineerProfile(localStorage.getItem('token')))
             const engineerProfile = await this.props.engineerProfile;
             this.setState({
-              engineerProfile: engineerProfile
+              engineerProfile: engineerProfile,
+              engineerDob: engineerDob
             })
             console.log("SSSS ", this.props)
             
@@ -416,7 +418,7 @@ class Engineer extends Component {
                   InputLabelProps={{
                     shrink: true,
                   }}
-                  value={engineerProfile.birth}
+                  value={engineerDob}
                   // value={this.state.birth}
                   onChange={ e => {this.setState({birth:e.target.value})
                   console.log(e.target.value)}}
@@ -538,6 +540,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     getEngineerProfile,
+    patchEngineerProfile,
     dispatch
   })
 
