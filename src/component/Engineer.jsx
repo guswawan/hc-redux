@@ -230,11 +230,11 @@ class Engineer extends Component {
     handleSkillUpgrade = () => {
       const auth = getAuth();
       const token = auth.token;
-      const url = `https://hiringchannel-api.herokuapp.com/v1/engineer/skill/${this.state.id}`
+      const url = `http://localhost:5000/v1/engineer/skill/${this.state.id}`
       console.log("ID ENG ",this.state.id)
       const dataSkill = {
         skill_item: this.state.skill_item,
-        id: this.state.id,
+        // id: this.state.id,
       }
       const headers = { Authorization: `Bearer ${token}`};
 
@@ -248,7 +248,7 @@ class Engineer extends Component {
           title:'Success',
           text:'Skill Upgraded.'
         })
-        this.getFetch(`https://hiringchannel-api.herokuapp.com/v1/engineer/profile`)
+        this.getFetch(`http://localhost:5000/v1/engineer/profile`)
       })
       .catch(err => {
         Swal.fire ({
