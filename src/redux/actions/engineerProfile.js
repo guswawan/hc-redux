@@ -25,11 +25,36 @@ export const getEngineerProfile = (token) => dispatch => {
       console.log("res ",res)
       dispatch({
         type: 'GET_ENG_PROFILE_FULFILLED',
-        payload: res.data.data[0]
+        payload: res.data.data[0],
+        birth: res.data.data[0].birth.slice(0,10)
       })
     })
     .catch(err => {
         console.log(err)
     })
                 
+}
+
+export const patchEngineerProfile = (token, data, id) => dispatch => {
+  axios.patch(`https://hiringchannel-api.herokuapp.com/v1/engineer/${id}`, null, {
+    headers: headers,
+    params: data
+  })
+  // .then(res => {
+    
+  //   Swal.fire({
+  //     icon: 'success',
+  //     title:'Success',
+  //     text:'Profile Updated.'
+  //   })
+  //   //this.getFetch('https://hiringchannel-api.herokuapp.com/v1/engineer')
+  // })
+  // .catch(err => {
+  //   Swal.fire ({
+  //     icon: 'error',
+  //     title: 'error',
+  //     text: 'Update Failed.'
+  //   })
+  // })
+              
 }

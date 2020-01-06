@@ -134,38 +134,45 @@ class Engineer extends Component {
       })
     }
 
-    handlePatch = () => {
-      const auth = getAuth();
-      const token = auth.token;
-      const url = `https://hiringchannel-api.herokuapp.com/v1/engineer/${this.state.id}`
-      console.log("ID ",this.state.id)
-      const data = {
-        name_engineer: this.state.name_engineer,
-        description: this.state.description,
-        location: this.state.location,
-        birth: this.state.birth
-      }
-      const headers = { Authorization: `Bearer ${token}`};
+    handlePatch =  async () => {
+      // const auth = getAuth();
+      // const token = auth.token;
+      // const url = `https://hiringchannel-api.herokuapp.com/v1/engineer/${this.state.id}`
+      // console.log("ID ",this.state.id)
+      // const data = {
+      //   name_engineer: this.state.name_engineer,
+      //   description: this.state.description,
+      //   location: this.state.location,
+      //   birth: this.state.birth
+      // }
+      // const headers = { Authorization: `Bearer ${token}`};
 
-      axios.patch(url, null, {
-        headers: headers,
-        params: data 
-      })
-      .then(res => {
-        Swal.fire({
-          icon: 'success',
-          title:'Success',
-          text:'Profile Updated.'
-        })
-        this.getFetch('https://hiringchannel-api.herokuapp.com/v1/engineer')
-      })
-      .catch(err => {
-        Swal.fire ({
-          icon: 'error',
-          title: 'error',
-          text: 'Update Failed.'
-        })
-      })
+      await this.props.dispatch(patchEngineerProfile(data, id, localStorage.getItem('token')))
+      // const engineerProfile = await this.props.engineerProfile;
+      // this.setState({
+      //   engineerProfile: engineerProfile
+      // })
+      console.log("SSSS ", this.props)
+
+      // axios.patch(url, null, {
+      //   headers: headers,
+      //   params: data 
+      // })
+      // .then(res => {
+      //   Swal.fire({
+      //     icon: 'success',
+      //     title:'Success',
+      //     text:'Profile Updated.'
+      //   })
+      //   this.getFetch('https://hiringchannel-api.herokuapp.com/v1/engineer')
+      // })
+      // .catch(err => {
+      //   Swal.fire ({
+      //     icon: 'error',
+      //     title: 'error',
+      //     text: 'Update Failed.'
+      //   })
+      // })
     }
 
     handleStatusProject = () => {
@@ -524,7 +531,8 @@ class Engineer extends Component {
 
 const mapStateToProps = state => {
   return {
-    engineerProfile: state.engineerProfile
+    engineerProfile: state.engineerProfile,
+    engineerDob: state.engineerDob
   }
 }
 

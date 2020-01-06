@@ -1,5 +1,6 @@
 const initialState = {
     engineerProfile: [],
+    engineerDob:'',
     isPending: false,
     isRejected: false,
     isFulfilled: false
@@ -25,11 +26,14 @@ const getEngineerProfile = (State = initialState, action) => {
             };
         case "GET_ENG_PROFILE_FULFILLED":
             console.log("ACTION PAYLOAD ", action.payload)
+            console.log("ACTION BIRTH ", action.birth)
             return {
                 ...State,
                 isPending: false,
                 isFulfilled: true,
-                engineerProfile: action.payload
+                engineerProfile: action.payload,
+                engineerDob: action.birth
+                
             };
         default:
             return State
