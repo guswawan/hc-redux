@@ -134,6 +134,13 @@ class Home extends Component {
         `https://hiringchannel-api.herokuapp.com/v1/engineer?limit=${this.state.limit}&page=${this.state.page}`
       ];
         if (authRole === 'company') {
+          // await this.props.dispatch(getEngineer(localStorage.getItem('token')))
+          //   const engineer = await this.props.engineer;
+          //   this.setState({
+          //     engineer: engineer
+          //   })
+          //   console.log("SSSS ", this.props)
+
             axios.get(url[1],{ headers: { Authorization: `Bearer ${auth.token}`}})
             .then(res => {
                 console.log("res axios ",res.data)
