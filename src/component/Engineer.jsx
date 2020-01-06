@@ -91,25 +91,25 @@ class Engineer extends Component {
             })
             console.log("SSSS ", this.props)
             
-            axios.get('https://hiringchannel-api.herokuapp.com/v1/engineer/profile', { headers: { Authorization: `Bearer ${auth.token}`}})
-            .then(res => {
-              console.log("res axios ke-2 B ", res.data.data)  
-              console.log("res axios ke-2 ", res.data.data[0])
-                this.setState({
-                    data:res.data.data,
-                    id: res.data.data[0].id,
-                    name_engineer: res.data.data[0].name_engineer,
-                    description: res.data.data[0].description,
-                    location: res.data.data[0].location,
-                    birth: res.data.data[0].birth.slice(0,10)
-                })
-            })
-            .catch(err => {
-                console.log(err)
-                this.setState({
-                  data: 'Not Found.'
-                })
-            })
+            // axios.get('https://hiringchannel-api.herokuapp.com/v1/engineer/profile', { headers: { Authorization: `Bearer ${auth.token}`}})
+            // .then(res => {
+            //   console.log("res axios ke-2 B ", res.data.data)  
+            //   console.log("res axios ke-2 ", res.data.data[0])
+            //     this.setState({
+            //         data:res.data.data,
+            //         id: res.data.data[0].id,
+            //         name_engineer: res.data.data[0].name_engineer,
+            //         description: res.data.data[0].description,
+            //         location: res.data.data[0].location,
+            //         birth: res.data.data[0].birth.slice(0,10)
+            //     })
+            // })
+            // .catch(err => {
+            //     console.log(err)
+            //     this.setState({
+            //       data: 'Not Found.'
+            //     })
+            // })
         }
     }
 
@@ -354,14 +354,14 @@ class Engineer extends Component {
       
           <Grid className="map">
 
-            {
+            {/* {
                 filtered && filtered.map(data => {
                     return <Cards key={data.id} name={data.name_engineer}
                     desc={data.description} skill={data.skill}/>
                 })
-            }
-                  {/* <Cards key={engineerProfile.id} name={engineerProfile.name_engineer}
-                  desc={engineerProfile.description} skill={engineerProfile.skill}/> */}
+            } */}
+                  <Cards key={engineerProfile.id} name={engineerProfile.name_engineer}
+                  desc={engineerProfile.description} skill={engineerProfile.skill}/>
               <div className="group-form-editprofile">
                 <h2>Edit profile</h2>
                 <p>Companies on Hiring Channel will get to know you with the info below</p>
