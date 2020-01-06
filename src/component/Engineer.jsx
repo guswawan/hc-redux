@@ -30,7 +30,6 @@ import Swal from 'sweetalert2';
 //redux
 import { connect } from 'react-redux'
 import { getEngineerProfile } from '../redux/actions/engineerProfile'
-import { patchEngineerProfile } from '../redux/actions/engineerProfile'
 
 
 class Engineer extends Component {
@@ -88,8 +87,7 @@ class Engineer extends Component {
             await this.props.dispatch(getEngineerProfile(localStorage.getItem('token')))
             const engineerProfile = await this.props.engineerProfile;
             this.setState({
-              engineerProfile: engineerProfile,
-              engineerDob: engineerDob
+              engineerProfile: engineerProfile
             })
             console.log("SSSS ", this.props)
             
@@ -136,45 +134,38 @@ class Engineer extends Component {
       })
     }
 
-    handlePatch =  async () => {
-      // const auth = getAuth();
-      // const token = auth.token;
-      // const url = `https://hiringchannel-api.herokuapp.com/v1/engineer/${this.state.id}`
-      // console.log("ID ",this.state.id)
-      // const data = {
-      //   name_engineer: this.state.name_engineer,
-      //   description: this.state.description,
-      //   location: this.state.location,
-      //   birth: this.state.birth
-      // }
-      // const headers = { Authorization: `Bearer ${token}`};
+    handlePatch = () => {
+      const auth = getAuth();
+      const token = auth.token;
+      const url = `https://hiringchannel-api.herokuapp.com/v1/engineer/${this.state.id}`
+      console.log("ID ",this.state.id)
+      const data = {
+        name_engineer: this.state.name_engineer,
+        description: this.state.description,
+        location: this.state.location,
+        birth: this.state.birth
+      }
+      const headers = { Authorization: `Bearer ${token}`};
 
-      await this.props.dispatch(patchEngineerProfile(data, id, localStorage.getItem('token')))
-      // const engineerProfile = await this.props.engineerProfile;
-      // this.setState({
-      //   engineerProfile: engineerProfile
-      // })
-      console.log("SSSS ", this.props)
-
-      // axios.patch(url, null, {
-      //   headers: headers,
-      //   params: data 
-      // })
-      // .then(res => {
-      //   Swal.fire({
-      //     icon: 'success',
-      //     title:'Success',
-      //     text:'Profile Updated.'
-      //   })
-      //   this.getFetch('https://hiringchannel-api.herokuapp.com/v1/engineer')
-      // })
-      // .catch(err => {
-      //   Swal.fire ({
-      //     icon: 'error',
-      //     title: 'error',
-      //     text: 'Update Failed.'
-      //   })
-      // })
+      axios.patch(url, null, {
+        headers: headers,
+        params: data 
+      })
+      .then(res => {
+        Swal.fire({
+          icon: 'success',
+          title:'Success',
+          text:'Profile Updated.'
+        })
+        this.getFetch('https://hiringchannel-api.herokuapp.com/v1/engineer')
+      })
+      .catch(err => {
+        Swal.fire ({
+          icon: 'error',
+          title: 'error',
+          text: 'Update Failed.'
+        })
+      })
     }
 
     handleStatusProject = () => {
@@ -371,7 +362,6 @@ class Engineer extends Component {
             } */}
                   <Cards key={engineerProfile.id} name={engineerProfile.name_engineer}
                   desc={engineerProfile.description} skill={engineerProfile.skill}/>
-
               <div className="group-form-editprofile">
                 <h2>Edit profile</h2>
                 <p>Companies on Hiring Channel will get to know you with the info below</p>
@@ -379,8 +369,8 @@ class Engineer extends Component {
                   <TextField
                   // label="Full Name"
                   // id="outlined-size-small"
-                  value={engineerProfile.name_engineer}
-                  // value={this.state.name_engineer}
+                  // value={engineerProfile.name_engineer}
+                  value={this.state.name_engineer}
                   onChange={ e => {this.setState({name_engineer:e.target.value})
                   console.log(this.state.name_engineer)}}
                   variant="outlined"
@@ -418,7 +408,7 @@ class Engineer extends Component {
                   InputLabelProps={{
                     shrink: true,
                   }}
-                  value={engineerDob}
+                  value={engineerProfile.birth.slice(0,10)}
                   // value={this.state.birth}
                   onChange={ e => {this.setState({birth:e.target.value})
                   console.log(e.target.value)}}
@@ -533,14 +523,12 @@ class Engineer extends Component {
 
 const mapStateToProps = state => {
   return {
-    engineerProfile: state.engineerProfile,
-    engineerDob: state.engineerDob
+    engineerProfile: state.engineerProfile
   }
 }
 
 const mapDispatchToProps = dispatch => ({
     getEngineerProfile,
-    patchEngineerProfile,
     dispatch
   })
 
