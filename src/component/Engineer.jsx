@@ -234,7 +234,7 @@ class Engineer extends Component {
       console.log("ID ENG ",this.state.id)
       const dataSkill = {
         skill_item: this.state.skill_item,
-        // id: this.state.id,
+        id: this.state.id,
       }
       const headers = { Authorization: `Bearer ${token}`};
 
