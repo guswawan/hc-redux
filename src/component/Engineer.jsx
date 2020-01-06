@@ -362,6 +362,7 @@ class Engineer extends Component {
             } */}
                   <Cards key={engineerProfile.id} name={engineerProfile.name_engineer}
                   desc={engineerProfile.description} skill={engineerProfile.skill}/>
+
               <div className="group-form-editprofile">
                 <h2>Edit profile</h2>
                 <p>Companies on Hiring Channel will get to know you with the info below</p>
@@ -369,8 +370,8 @@ class Engineer extends Component {
                   <TextField
                   // label="Full Name"
                   // id="outlined-size-small"
-                  // value={engineerProfile.name_engineer}
-                  value={this.state.name_engineer}
+                  value={engineerProfile.name_engineer}
+                  // value={this.state.name_engineer}
                   onChange={ e => {this.setState({name_engineer:e.target.value})
                   console.log(this.state.name_engineer)}}
                   variant="outlined"
@@ -380,8 +381,8 @@ class Engineer extends Component {
                   <TextField
                     // label="Description"
                     // id="outlined-size-small"
-                    // value={engineerProfile.description}
-                    value={this.state.description}
+                    value={engineerProfile.description}
+                    // value={this.state.description}
                     onChange={ e => {this.setState({description:e.target.value})
                   console.log(e.target.value)}}
                     variant="outlined"
@@ -391,8 +392,8 @@ class Engineer extends Component {
                   <TextField
                   // label="Location"
                   // id="outlined-size-small"
-                  // value={engineerProfile.location}
-                  value={this.state.location}
+                  value={engineerProfile.location}
+                  // value={this.state.location}
                   onChange={ e => {this.setState({location:e.target.value})
                   console.log(e.target.value)}}
                   variant="outlined"
@@ -408,8 +409,8 @@ class Engineer extends Component {
                   InputLabelProps={{
                     shrink: true,
                   }}
-                  // value={engineerProfile.birth}
-                  value={this.state.birth}
+                  value={engineerProfile.birth}
+                  // value={this.state.birth}
                   onChange={ e => {this.setState({birth:e.target.value})
                   console.log(e.target.value)}}
                   />
