@@ -230,7 +230,7 @@ class Engineer extends Component {
     handleSkillUpgrade = () => {
       const auth = getAuth();
       const token = auth.token;
-      const url = `http://localhost:5000/v1/engineer/skill/${this.state.id}`
+      const url = `https://hiringchannel-api.herokuapp.com/v1/engineer/skill/${this.state.id}`
       console.log("ID ENG ",this.state.id)
       const dataSkill = {
         skill_item: this.state.skill_item,
@@ -248,7 +248,7 @@ class Engineer extends Component {
           title:'Success',
           text:'Skill Upgraded.'
         })
-        this.getFetch(`http://localhost:5000/v1/engineer/profile`)
+        this.getFetch(`https://hiringchannel-api.herokuapp.com/v1/engineer/profile`)
       })
       .catch(err => {
         Swal.fire ({
@@ -369,8 +369,8 @@ class Engineer extends Component {
                   <TextField
                   // label="Full Name"
                   // id="outlined-size-small"
-                  value={engineerProfile.name_engineer}
-                  // value={this.state.name_engineer}
+                  // value={engineerProfile.name_engineer}
+                  value={this.state.name_engineer}
                   onChange={ e => {this.setState({name_engineer:e.target.value})
                   console.log(this.state.name_engineer)}}
                   variant="outlined"
@@ -409,7 +409,7 @@ class Engineer extends Component {
                     shrink: true,
                   }}
                   value={engineerProfile.birth.slice(0,10)}
-                  value={this.state.birth}
+                  // value={this.state.birth}
                   onChange={ e => {this.setState({birth:e.target.value})
                   console.log(e.target.value)}}
                   />

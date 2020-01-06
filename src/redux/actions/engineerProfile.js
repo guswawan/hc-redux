@@ -34,11 +34,11 @@ export const getEngineerProfile = (token) => dispatch => {
                 
 }
 
-export const patchEngineerProfile = (token, data, id) => dispatch => {
-  axios.patch(`https://hiringchannel-api.herokuapp.com/v1/engineer/${id}`, null, {
-    headers: headers,
-    params: data
-  })
+// export const patchEngineerProfile = (token, data, id) => dispatch => {
+//   axios.patch(`https://hiringchannel-api.herokuapp.com/v1/engineer/${id}`, null, {
+//     headers: headers,
+//     params: data
+//   })
   // .then(res => {
     
   //   Swal.fire({
@@ -56,4 +56,4 @@ export const patchEngineerProfile = (token, data, id) => dispatch => {
   //   })
   // })
               
-}
+// }
