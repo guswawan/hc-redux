@@ -143,7 +143,7 @@ class Engineer extends Component {
         name_engineer: this.state.name_engineer,
         description: this.state.description,
         location: this.state.location,
-        // birth: this.state.birth
+        birth: this.state.birth
       }
       const headers = { Authorization: `Bearer ${token}`};
 
@@ -399,6 +399,22 @@ class Engineer extends Component {
                   size="small"
                   />
                   <br/>
+                  <TextField
+                  id="outlined-size-small"
+                  type="date"
+                  size="small"
+                  variant="outlined"
+                  label="Date of birth"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  value={engineerProfile.birth.slice(0,10)}
+                  value={this.state.birth}
+                  onChange={ e => {this.setState({birth:e.target.value})
+                  console.log(e.target.value)}}
+                  />
+                  <br/>
+               
                 </div>
                 <div className="btn-editprofile">
                   <ButtonGroup>
