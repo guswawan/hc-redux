@@ -369,8 +369,8 @@ class Engineer extends Component {
                   <TextField
                   // label="Full Name"
                   // id="outlined-size-small"
-                  // value={engineerProfile.name_engineer}
-                  value={this.state.name_engineer}
+                  value={engineerProfile.name_engineer}
+                  //value={this.state.name_engineer}
                   onChange={ e => {this.setState({name_engineer:e.target.value})
                   console.log(this.state.name_engineer)}}
                   variant="outlined"
@@ -408,7 +408,7 @@ class Engineer extends Component {
                   InputLabelProps={{
                     shrink: true,
                   }}
-                  value={engineerProfile.birth.slice(0,10)}
+                  value={engineerProfile.birth}
                   // value={this.state.birth}
                   onChange={ e => {this.setState({birth:e.target.value})
                   console.log(e.target.value)}}
