@@ -3,7 +3,8 @@
 
 <p align="center">
     <img src="https://cdn.worldvectorlogo.com/logos/react.svg" height="90px">  
-    <img src="https://material-ui.com/static/images/material-ui-logo.svg" height="90px">
+    <img src="https://user-images.githubusercontent.com/46936229/155068106-7238e19d-bd65-4adf-96b0-a6641fffbb34.svg" height="90px">
+    &nbsp
     <img src="https://redux.js.org/img/redux.svg" height="90px"> 
 
 </p>
