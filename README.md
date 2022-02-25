@@ -24,6 +24,7 @@ Project is created with
 
 * ReactJs
 * Material-UI
+* Redux
 
 
 ---
